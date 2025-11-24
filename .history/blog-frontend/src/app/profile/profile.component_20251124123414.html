@@ -1,0 +1,113 @@
+<div class="main-container">
+<div class="main-container" *ngIf="user">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2>Comet</h2>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a routerLink="/" class="nav-item">
+        <i class="fa-solid fa-house"></i>
+        <span class="nav-text">Home</span>
+      </a>
+<a *ngIf="username" [routerLink]="['/profile', username]" class="nav-item active">
+<a *ngIf="user.username" [routerLink]="['/profile', user.username]" class="nav-item active">
+        <i class="fa-solid fa-user"></i>
+        <span class="nav-text">Profile</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button (click)="logout()" class="logout-btn">
+        <i class="fa-regular fa-circle-left"></i>
+        <span class="nav-text">Logout</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="content-wrapper">
+      <!-- Header -->
+      <header class="content-header">
+        <button (click)="goBack()" class="back-btn">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <div class="header-info">
+          <h1>{{ username }}</h1>
+          <h1>{{ user.username }}</h1>
+          <span class="post-count">{{ postCount }} posts</span>
+        </div>
+      </header>
+
+      <!-- Banner -->
+      <div class="profile-banner"></div>
+      <div 
+        class="profile-banner" 
+        [style.background-image]="user.bannerImageUrl ? 'url(' + apiBaseUrl + user.bannerImageUrl + ')' : null">
+      </div>
+
+      <!-- Profile Info -->
+      <div class="profile-info">
+        <div class="profile-avatar-wrapper">
+          <div class="profile-avatar">{{ username.charAt(0).toUpperCase() }}</div>
+          <!-- Si hay imagen de perfil, la mostramos -->
+          <img *ngIf="user.profileImageUrl" 
+               [src]="apiBaseUrl + user.profileImageUrl" 
+               alt="Foto de perfil de {{ user.username }}" 
+               class="profile-avatar-img">
+          <!-- Si no, mostramos la inicial -->
+          <div *ngIf="!user.profileImageUrl" class="profile-avatar-initial">
+            {{ user.username.charAt(0).toUpperCase() }}
+          </div>
+        </div>
+
+        <div class="profile-details">
+          <h2 class="profile-name">{{ username }}</h2>
+<span class="profile-username">{{ '@' + username }}</span>
+          <h2 class="profile-name">{{ user.username }}</h2>
+<span class="profile-username">{{ '@' + user.username }}</span>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="profile-tabs">
+        <div class="tab active">Posts</div>
+      </div>
+
+      <!-- Posts Container -->
+      <div class="posts-container">
+        <div *ngIf="userPosts.length === 0" class="empty-state">
+          <p>{{ isOwnProfile ? 'No has publicado nada aún' : 'Este usuario no ha publicado nada aún' }}</p>
+        </div>
+
+        <article *ngFor="let post of userPosts" class="post-card">
+          <div class="post-header">
+            <div class="post-author">
+              <div class="author-avatar">{{ post.authorUsername.charAt(0).toUpperCase() }}</div>
+              <div class="author-info">
+                <span class="author-name">{{ post.authorUsername }}</span>
+                <span class="post-date">{{ post.createdAt | date:'short' }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="post-body">
+            <h3 class="post-title">{{ post.title }}</h3>
+            <p class="post-content">{{ post.content }}</p>
+          </div>
+
+          <div *ngIf="isOwnProfile && post.authorId === currentUserId" class="post-actions">
+            <button class="action-btn edit-btn" [routerLink]="['/edit', post.id]">
+              <i class="fa-solid fa-pen-to-square"></i> 
+            </button>
+            <button class="action-btn delete-btn" (click)="deletePost(post.id)">
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+</div>
