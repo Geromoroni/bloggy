@@ -1,4 +1,4 @@
-# BlogApp - Plataforma de Blogging Full-Stack
+# Bloggy - Plataforma de Blogging Full-Stack
 
 ![Java](https://img.shields.io/badge/Java-17+-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
@@ -6,7 +6,7 @@
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-blue?style=for-the-badge&logo=docker&logoColor=white)
 
-BlogApp es una aplicación web full-stack que construí para poner en práctica y demostrar mis habilidades con tecnologías modernas. El objetivo fue crear una plataforma de blogging funcional desde cero, integrando un backend robusto con **Spring Boot**, un frontend dinámico con **Angular**, y un sistema de autenticación seguro basado en **JWT**.
+Bloggy es una aplicación web full-stack que construí para poner en práctica y demostrar mis habilidades con tecnologías modernas. El objetivo fue crear una plataforma de blogging funcional desde cero, integrando un backend robusto con **Spring Boot**, un frontend dinámico con **Angular**, y un sistema de autenticación seguro basado en **JWT**.
 
 ## 📸 Screenshots de la Aplicación
 
