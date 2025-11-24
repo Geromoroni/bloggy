@@ -1,0 +1,123 @@
+<!-- FONDO OSCURO DEL MODAL -->
+<div class="modal-backdrop" *ngIf="editingPost"></div>
+
+<!-- MODAL USANDO TU COMPONENTE REAL -->
+<app-edit-post *ngIf="editingPost" [post]="editingPost" (close)="closeEditModal()" (saved)="reloadAfterEdit()"
+  class="modal-wrapper">
+</app-edit-post>
+
+<!-- BACKDROP -->
+<div class="modal-backdrop" *ngIf="postToDelete"></div>
+
+<!-- MODAL ELIMINAR -->
+<div class="modal" *ngIf="postToDelete">
+  <div class="modal-content delete-modal">
+    <h2>¿Eliminar Post?</h2>
+
+    <p class="delete-text">
+      ¿Seguro que deseas eliminar el post <strong>"{{ postToDelete.title }}"</strong>?
+    </p>
+
+    <div class="modal-buttons">
+      <button class="btn-cancel" (click)="closeDeleteModal()">Cancelar</button>
+      <button class="btn-delete" (click)="confirmDelete()">Eliminar</button>
+    </div>
+  </div>
+</div>
+
+<div class="page-layout">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2>bloggy</h2>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a routerLink="/posts" class="nav-item active">
+        <i class="fa-solid fa-house"></i>
+        <span class="nav-text">Home</span>
+      </a>
+
+      <a *ngIf="username" [routerLink]="['/profile', username]" class="nav-item">
+        <i class="fa-solid fa-user"></i>
+        <span class="nav-text">Profile</span>
+      </a>
+
+
+
+    </nav>
+
+    <div class="sidebar-footer">
+      <button (click)="logout()" class="logout-btn">
+        <i class="fa-regular fa-circle-left"></i>
+        <span class="nav-text">Logout</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-content-area">
+    <div class="content-wrapper">
+      <header class="content-header">
+        <h1>Posts</h1>
+      </header>
+
+      <app-post-create [username]="username" (postCreated)="loadPosts()"></app-post-create>
+      <div class="posts-container">
+        <div *ngIf="posts.length === 0" class="empty-state">
+          <p>No hay posts disponibles aún.</p>
+        </div>
+
+        <article *ngFor="let post of posts" class="post-card">
+          <div class="post-header">
+            <div class="post-author">
+              <div class="author-avatar">{{ post.authorUsername.charAt(0).toUpperCase() }}</div>
+              <div class="author-info">
+                <span class="author-name">{{ post.authorUsername }}</span>
+                <span class="post-date">{{ post.createdAt | date:'short' }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="post-body">
+            <h3 class="post-title">{{ post.title }}</h3>
+            <p class="post-content">{{ post.content }}</p>
+          </div>
+
+          <div *ngIf="isLoggedIn && post.authorId === currentUserId" class="post-actions">
+            <button class="edit-btn" (click)="openEditModal(post)">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button class="action-btn delete-btn" (click)="openDeleteModal(post)">
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Sidebar for Widgets -->
+  <aside class="right-sidebar">
+      <div class="search-container">
+    <input type="text" placeholder="Buscar" class="search-input"/>
+</div>
+    <div class="widget">
+      <h3 class="widget-title">Trends for you</h3>
+      <ul class="widget-list">
+        <li><a href="#">#Angular17</a><span>15.3K posts</span></li>
+        <li><a href="#">#TypeScript</a><span>12K posts</span></li>
+        <li><a href="#">#WebDev</a><span>9.8K posts</span></li>
+        <li><a href="#">#CodingLife</a><span>7.2K posts</span></li>
+      </ul>
+    </div>
+    <div class="widget">
+      <h3 class="widget-title">Who to follow</h3>
+      <ul class="widget-list">
+        <li><a href="#">The Angular Team</a><button class="follow-btn">Follow</button></li>
+        <li><a href="#">Sarah Drasner</a><button class="follow-btn">Follow</button></li>
+        <li><a href="#">John Papa</a><button class="follow-btn">Follow</button></li>
+      </ul>
+    </div>
+  </aside>
+</div>

@@ -1,0 +1,96 @@
+/* LAYOUT GENERAL */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ropa+Sans:ital@0;1&display=swap');
+.layout {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow-y: none;
+}
+main{
+    background-color: #262626 !important;
+}
+/* GRID PRINCIPAL */
+.page-grid {
+  display: grid;
+  grid-template-columns: 1fr 600px 1fr; 
+  /* 1fr = espacio libre a los costados */
+  /* 600px = columna central (posts) */
+  
+  height: 100vh;
+  
+}
+
+/* COLUMNA IZQUIERDA */
+.left-sidebar {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+align-items: center;
+color: white;
+margin-top: 70px;
+}
+
+/* COLUMNA DERECHA */
+.right-space {
+  padding: 20px;
+}
+
+/* COLUMNA CENTRAL */
+.center-content {
+  overflow-y: none
+  ;
+}
+
+/* LOGO */
+.logo h2 {
+  margin: 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+/* LINKS */
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: wheat;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+nav i {
+
+  margin-right: 15px;
+}
+.user-icon{
+    font-size: 32px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    color: wheat;
+}
+
+.nav-links a:hover {
+  background-color: #e5e7eb;
+}
+
+.nav-links button {
+  margin-top: 20px;
+  padding: 10px;
+  border: none;
+  background-color: #ef4444;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.nav-links button:hover {
+  background-color: #dc2626;
+}

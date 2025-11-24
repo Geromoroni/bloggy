@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #15181c;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  padding: 20px;
+}
+
+.register-card {
+  background-color: #15181c;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 60px 50px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.register-header {
+  margin-bottom: 48px;
+}
+
+.register-header h1 {
+  font-size: 42px;
+  color: #ffffff;
+  font-weight: 300;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #808080;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 400;
+  color: #a0a0a0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.form-group input {
+  padding: 16px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 16px;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-bottom-color: #ffffff;
+}
+
+.form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.form-group input:-webkit-autofill,
+.form-group input:-webkit-autofill:hover,
+.form-group input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff;
+  -webkit-box-shadow: 0 0 0 30px #1e1e1e inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.error-message {
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  color: #ff6b6b;
+  padding: 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+.register-button {
+  background: #ffffff;
+  color: #000000;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 16px;
+
+  min-width: 140px;
+}
+
+.register-button:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+.register-button:active {
+  transform: translateY(0);
+}
+
+.login-redirect {
+  text-align: center;
+  font-size: 13px;
+  color: #808080;
+  margin-top: -8px;
+}
+
+.login-redirect a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.login-redirect a:hover {
+  color: #cccccc;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .register-card {
+    padding: 40px 30px;
+  }
+
+  .register-header h1 {
+    font-size: 36px;
+  }
+
+  .register-button {
+    align-self: stretch;
+  }
+}
