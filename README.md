@@ -51,7 +51,7 @@ El proyecto cuenta con todo lo necesario para una experiencia de blogging comple
 - **Docker & Docker Compose** para orquestar la base de datos MySQL.
 - **Swagger/OpenAPI 3** para la documentación de la API.
 
-## 🚀 Cómo Empezar (Configuración Local)
+## 🚀 Cómo Empezar (Configuración Local) // esto fue generado con inteligencia artificial con el fin de explicar la instalacion del proyecto ! 
 
 ¿Quieres probar el proyecto? Sigue estos pasos para ejecutarlo en tu máquina.
 
